@@ -1,0 +1,16 @@
+Column	Description	Notes
+Customer	ERP Customer Code
+Region	Region Code	1 =SW, 2=S, 3=NE, 4=W, 5=N
+Date	Date of sale or return
+Cat	Sales Category	1=Standard, 2=Offer, 3=Logistic Operation
+Route	Sales Type	1=Standard, 2=Return, 3=Bonus
+Produt	ERP Product Code
+Season	Standard Seasonality	1=No Seasonality, 2=Winter, 3=Summer
+State	State/Province Acronym	1=SP, 2=MG, 3=RJ, 4=PR, 5=SC, 6=CE, 7=MT, 8=GO, 9=MA, 10=RN, 11=AP, 12=PI
+Pack	Merchandise category	1=Prescription Medicines, 2=Over-the-Counter Medicines, 3=Generic, 4=Nutrition, 5=Diabetes, 6=Hygiene and Beauty, 7=Dermocosmetics, 8=Convenience, 9=Diagnosis, 10=Similar
+Manufacturer	ERP Manufacturer Code
+Group	Customer Economic Group
+Segment	Customer Segment	1=Independent, 2=Associations, 3=Medium Chains, 4=Small Chains, 5=Supermarket Chains, 6=Large Accounts
+Base Value	Base operation value
+Manufacturer Value	Manufacturer List Price	The maximum price for the final consumer published by the manufacturer.
+Quantity	Operation Quantity	Negative quantities are returns
