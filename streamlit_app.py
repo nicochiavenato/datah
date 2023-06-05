@@ -18,16 +18,30 @@ if 'Unnamed: 0' in df:
 # Set up Streamlit
 st.title('Plots and Linear Regression')
 
-# Plot 1: Line chart of Base Value by Date
-st.subheader('Total Base Value by Date')
-df['Date'] = pd.to_datetime(df['Date'])
-base_value_by_date = df.groupby('Date')['Base Value'].sum()
-st.line_chart(base_value_by_date)
+col1, col2 = st.columns(2)
 
-# Plot 2: Pie chart of Quantity by Region
-st.subheader('Mean Quantity by Region')
-quantity_by_region = df.groupby('Region')['Quantity'].mean()
-st.bar_chart(quantity_by_region)
+with col1:
+    # Plot 1: Line chart of Base Value by Segment
+    st.subheader('Mean Quantity by Segment')
+    df['Date'] = pd.to_datetime(df['Segment'])
+    segment_qtd = df.groupby('Segment')['Quantity'].mean()
+    st.bar_chart(segment_qtd)
+
+    # Plot 2: Pie chart of Quantity by Region
+    st.subheader('Mean Quantity by Region')
+    region_qtd = df.groupby('Region')['Quantity'].mean()
+    st.bar_chart(region_qtd)
+
+with col2:
+    # Plot 3: Pie chart of Quantity by Category
+    st.subheader('Mean Quantity by Category')
+    cat_qtd = df.groupby('Cat')['Quantity'].mean()
+    st.bar_chart(cat_qtd)
+
+    # Plot 4: Pie chart of Quantity by Season
+    st.subheader('Mean Quantity by Season')
+    season_qtd = df.groupby('Season')['Quantity'].mean()
+    st.bar_chart(season_qtd)
 
 # Prepare the feature matrix X and the target variable y
 X = df.drop(['Customer', 'Date', 'Quantity'], axis=1)  # Exclude unnecessary columns
@@ -45,7 +59,6 @@ y_pred = regressor.predict(X_test)
 
 # Evaluate the model's performance using Mean Squared Error (MSE)
 mse = mean_squared_error(y_test, y_pred)
-print("Mean Squared Error:", mse)
 
 st.write('Set new inputs for prediction:')
 
@@ -70,7 +83,7 @@ with c4:
 with c5:
     segment = st.radio('Segment:', sorted(df['Segment'].unique().tolist()), horizontal=True)
 
-group = st.radio('Group:', sorted(df['Group'].unique().tolist()), horizontal=True)
+group = st.slider('Group:', min_value=int(df['Group'].min()), max_value=int(df['Group'].max()))
 base_value = st.number_input('Base Value:', step=0.01)
 manunf_value = st.number_input('Manufactor Value:', step=0.01)
 
