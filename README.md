@@ -22,8 +22,8 @@ pip install -r requirements.txt
 
 ## Usage
 
-Run the script to train the Linear Regression model and make the predictions:
+Run the script to launch streamlit, train the Linear Regression model and make the predictions:
 
 ```bash
-python main.py
+streamlit run .\streamlit_app.py   
 ```
