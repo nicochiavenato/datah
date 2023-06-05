@@ -39,8 +39,8 @@ with col2:
     st.bar_chart(cat_qtd)
 
     # Plot 4: Pie chart of Quantity by Season
-    st.subheader('Mean Quantity by Season')
-    season_qtd = df.groupby('Season')['Quantity'].mean()
+    st.subheader('Mean Quantity by State')
+    season_qtd = df.groupby('State')['Quantity'].mean()
     st.bar_chart(season_qtd)
 
 # Prepare the feature matrix X and the target variable y
