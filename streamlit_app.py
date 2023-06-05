@@ -38,7 +38,7 @@ with col2:
     cat_qtd = df.groupby('Cat')['Quantity'].mean()
     st.bar_chart(cat_qtd)
 
-    # Plot 4: Pie chart of Quantity by Season
+    # Plot 4: Pie chart of Quantity by State
     st.subheader('Mean Quantity by State')
     season_qtd = df.groupby('State')['Quantity'].mean()
     st.bar_chart(season_qtd)
