@@ -50,24 +50,30 @@ print("Mean Squared Error:", mse)
 st.write('Set new inputs for prediction:')
 
 c1, c2, c3, c4, c5 = st.columns(5)
-with c1:
-    region = st.radio('Region:', df['Region'].unique().tolist(), horizontal=True)
-    cat = st.radio('Category:', df['Cat'].unique().tolist(), horizontal=True)
-with c2:
-    route = st.radio('Route:', df['Route'].unique().tolist(), horizontal=True)
-    season = st.radio('Season:', df['Season'].unique().tolist(), horizontal=True)
-with c3:
-    state = st.radio('State:', df['State'].unique().tolist(), horizontal=True)
-    pack = st.radio('Pack:', df['Pack'].unique().tolist(), horizontal=True)
-with c4:
-    manufacturer = st.radio('Manufacture:', df['Manufacturer'].unique().tolist(), horizontal=True)
-    product = st.radio('Product:', df['Product'].unique().tolist(), horizontal=True)
-with c5:
-    segment = st.radio('Segment:', df['Segment'].unique().tolist(), horizontal=True)
 
-group = st.radio('Group:', df['Group'].unique().tolist(), horizontal=True)
+with c1:
+    region = st.radio('Region:', sorted(df['Region'].unique().tolist()), horizontal=True)
+    cat = st.radio('Category:', sorted(df['Cat'].unique().tolist()), horizontal=True)
+
+with c2:
+    route = st.radio('Route:', sorted(df['Route'].unique().tolist()), horizontal=True)
+    season = st.radio('Season:', sorted(df['Season'].unique().tolist()), horizontal=True)
+
+with c3:
+    state = st.radio('State:', sorted(df['State'].unique().tolist()), horizontal=True)
+    pack = st.radio('Pack:', sorted(df['Pack'].unique().tolist()), horizontal=True)
+
+with c4:
+    manufacturer = st.radio('Manufacture:', sorted(df['Manufacturer'].unique().tolist()), horizontal=True)
+    product = st.radio('Product:', sorted(df['Product'].unique().tolist()), horizontal=True)
+
+with c5:
+    segment = st.radio('Segment:', sorted(df['Segment'].unique().tolist()), horizontal=True)
+
+group = st.radio('Group:', sorted(df['Group'].unique().tolist()), horizontal=True)
 base_value = st.number_input('Base Value:', step=0.01)
 manunf_value = st.number_input('Manufactor Value:', step=0.01)
+
 
 # Prepare new data for prediction
 new_data = pd.DataFrame(
